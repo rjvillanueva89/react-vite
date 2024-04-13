@@ -5,6 +5,7 @@ import "./App.css"
 import "./index.css"
 import { DatastorePage } from "./pages/datastore"
 import { FormPage } from "./pages/form"
+import Form2Page from "./pages/form2"
 import { HomePage } from "./pages/home"
 import { StepperPage } from "./pages/stepper"
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   { path: "stepper", element: <StepperPage /> },
   { path: "datastore", element: <DatastorePage /> },
   { path: "form", element: <FormPage /> },
+  { path: "form2", element: <Form2Page /> },
 ])
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
