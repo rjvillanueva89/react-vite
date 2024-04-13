@@ -8,13 +8,20 @@ import { HomePage } from "./pages/home"
 import { StepperPage } from "./pages/stepper"
 import { YupTrials } from "./pages/yup-trials"
 import { YupTrialsNesting } from "./pages/yup-trials-nesting"
+import { ZodEnumTrials } from "./pages/zod-enum-trials"
+import { ZodTrials } from "./pages/zod-trials"
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
   { path: "stepper", element: <StepperPage /> },
   { path: "datastore", element: <DatastorePage /> },
   { path: "yup-trials", element: <YupTrials /> },
-  { path: "yup-trials-nesting", element: <YupTrialsNesting /> },
+  { path: "yup-trials/nesting", element: <YupTrialsNesting /> },
+  { path: "zod-trials", element: <ZodTrials /> },
+  {
+    path: "zod-trials/enum",
+    element: <ZodEnumTrials />,
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
