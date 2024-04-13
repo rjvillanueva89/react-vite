@@ -14,15 +14,15 @@ const UserSchema = (isRequired?: boolean) => ({
 })
 
 const FormSchema = yup.object({
-  is_married: yup.boolean(),
   borrower: yup.object({
     ...UserSchema(true),
+    is_married: yup.boolean(),
   }),
   spouse: yup
     .object({
       ...UserSchema(),
     })
-    .when("is_married", ([is_married], schema) => {
+    .when("borrower.is_married", ([is_married], schema) => {
       console.log(is_married)
 
       return is_married
@@ -46,7 +46,7 @@ export default function Form2Page() {
 
   const onSubmit = handleSubmit((data) => console.log(data))
 
-  const isMarried = watch("is_married")
+  const isMarried = watch("borrower.is_married")
 
   console.log(errors)
   return (
@@ -85,7 +85,7 @@ const UserSection = (props: Props<FormInputs>) => {
         <>
           <div>
             <label htmlFor="isMarried">
-              <input type="checkbox" {...register(`is_married`)} />
+              <input type="checkbox" {...register(`borrower.is_married`)} />
               Are you married?
             </label>
           </div>
