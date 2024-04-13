@@ -14,14 +14,14 @@ interface Props<T extends FieldValues> {
 }
 
 export const UserSection = (props: Props<FormInputs>) => {
-  const { prefix, register, control, errors } = props
+  const { prefix, register, errors } = props
   return (
     <>
       {prefix === "borrower" && (
         <div>
           <label htmlFor="isMarried">
-            <input type="checkbox" {...register(`${prefix}.is_married`)} /> Are
-            you married?
+            <input type="checkbox" {...register(`is_married`)} />
+            Are you married?
           </label>
         </div>
       )}
@@ -29,17 +29,17 @@ export const UserSection = (props: Props<FormInputs>) => {
         <input
           type="text"
           placeholder="First Name"
-          {...register(`${prefix}.first_name`)}
+          {...register(`${prefix}_first_name`)}
         />
-        <p>{errors[prefix]?.first_name?.message}</p>
+        <p>{errors?.[`${prefix}_first_name`]?.message}</p>
       </div>
       <div>
         <input
           type="text"
           placeholder="Last Name"
-          {...register(`${prefix}.last_name`)}
+          {...register(`${prefix}_last_name`)}
         />
-        <p>{errors[prefix]?.last_name?.message}</p>
+        <p>{errors?.[`${prefix}_last_name`]?.message}</p>
       </div>
     </>
   )

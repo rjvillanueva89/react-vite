@@ -3,15 +3,17 @@ import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { UserSection } from "../components/form-sections/user-section"
 
-const FormSchema = yup.object({
-  borrower: yup.object({
-    first_name: yup.string().required(),
-    last_name: yup.string().required(),
-    is_married: yup.boolean().default(false),
+const FormSchema = yup.object().shape({
+  is_married: yup.boolean(),
+  borrower_first_name: yup.string().required(),
+  borrower_last_name: yup.string().required(),
+  spouse_first_name: yup.string().when("is_married", ([is_married], schema) => {
+    console.log(is_married)
+    return is_married ? schema.required() : schema.optional()
   }),
-  spouse: yup.object({
-    first_name: yup.string().required(),
-    last_name: yup.string().required(),
+  spouse_last_name: yup.string().when("is_married", ([is_married], schema) => {
+    console.log(is_married)
+    return is_married ? schema.required() : schema.optional()
   }),
 })
 
@@ -24,13 +26,18 @@ export const FormPage = () => {
     watch,
     control,
     formState: { errors },
-  } = useForm<FormInputs>({ resolver: yupResolver(FormSchema) })
+  } = useForm<FormInputs>({
+    resolver: yupResolver(FormSchema),
+    shouldUnregister: true,
+    defaultValues: { is_married: false },
+  })
 
   const onSubmit = handleSubmit((data) => console.log(data))
 
-  const isMarried = watch("borrower.is_married")
+  const isMarried = watch("is_married")
 
   console.log(errors)
+
   return (
     <form onSubmit={onSubmit}>
       <UserSection
