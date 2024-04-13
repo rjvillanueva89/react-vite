@@ -4,17 +4,17 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import "./App.css"
 import "./index.css"
 import { DatastorePage } from "./pages/datastore"
-import { FormPage } from "./pages/form"
-import Form2Page from "./pages/form2"
 import { HomePage } from "./pages/home"
 import { StepperPage } from "./pages/stepper"
+import { YupTrials } from "./pages/yup-trials"
+import { YupTrialsNesting } from "./pages/yup-trials-nesting"
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
   { path: "stepper", element: <StepperPage /> },
   { path: "datastore", element: <DatastorePage /> },
-  { path: "form", element: <FormPage /> },
-  { path: "form2", element: <Form2Page /> },
+  { path: "yup-trials", element: <YupTrials /> },
+  { path: "yup-trials-nesting", element: <YupTrialsNesting /> },
 ])
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

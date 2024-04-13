@@ -35,7 +35,7 @@ const FormSchema = yup.object({
 
 export type FormInputs = yup.InferType<typeof FormSchema>
 
-export default function Form2Page() {
+export const YupTrialsNesting = () => {
   const {
     handleSubmit,
     watch,

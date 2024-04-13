@@ -4,7 +4,7 @@ import {
   FieldValues,
   UseFormRegister,
 } from "react-hook-form"
-import { FormInputs } from "../../pages/form"
+import { FormInputs } from "../../pages/yup-trials"
 
 interface Props<T extends FieldValues> {
   prefix: "borrower" | "spouse"

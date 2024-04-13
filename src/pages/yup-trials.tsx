@@ -19,7 +19,7 @@ const FormSchema = yup.object().shape({
 
 export type FormInputs = yup.InferType<typeof FormSchema>
 
-export const FormPage = () => {
+export const YupTrials = () => {
   const {
     handleSubmit,
     register,
