@@ -5,6 +5,7 @@ import "./App.css"
 import "./index.css"
 import { DatastorePage } from "./pages/datastore"
 import { HomePage } from "./pages/home"
+import { NumberFormat } from "./pages/number-format"
 import { StepperPage } from "./pages/stepper"
 import { YupTrials } from "./pages/yup-trials"
 import { YupTrialsNesting } from "./pages/yup-trials-nesting"
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     path: "zod-trials/enum",
     element: <ZodEnumTrials />,
   },
+  { path: "number-format", element: <NumberFormat /> },
 ])
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
