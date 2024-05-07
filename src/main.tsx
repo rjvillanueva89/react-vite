@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import "./App.css"
 import "./index.css"
 import { DatastorePage } from "./pages/datastore"
+import { HOCPage } from "./pages/hoc"
 import { HomePage } from "./pages/home"
 import { NumberFormat } from "./pages/number-format"
 import { StepperPage } from "./pages/stepper"
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
     element: <ZodEnumTrials />,
   },
   { path: "number-format", element: <NumberFormat /> },
+  { path: "hoc", element: <HOCPage someString="some string" /> },
 ])
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

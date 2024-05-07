@@ -4,7 +4,11 @@ import {
   useNumericFormat,
 } from "react-number-format"
 
-interface Props extends NumberFormatBaseProps {}
+interface Props
+  extends Pick<
+    NumberFormatBaseProps,
+    "value" | "onValueChange" | "customInput"
+  > {}
 
 export const CurrencyInput = ({ value, onValueChange, customInput }: Props) => {
   const props = useNumericFormat({
